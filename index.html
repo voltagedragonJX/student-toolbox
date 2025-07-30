@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Toolbox</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <header>
+    <h1>Student Toolbox</h1>
+    <p>Useful tools for students, built by a 13-year-old dev!</p>
+  </header>
+
+  <main>
+    <div id="dark-mode-toggle" style="text-align: right; margin: 1rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; font-family: sans-serif; color: #444;">
+      <span>Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="toggle-dark-mode" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <nav id="quick-nav" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+      <button data-target="countdown" class="nav-btn">Countdown</button>
+      <button data-target="stopwatch" class="nav-btn">Stopwatch</button>
+      <button data-target="pomodoro" class="nav-btn">Work Timer</button>
+      <button data-target="calculator" class="nav-btn">Calculator</button>
+      <button data-target="todo" class="nav-btn">To-Do List</button>
+    </nav>
+    
+    
+    
+    <section id="word-counter" class="tool">
+      <h2>Word Counter</h2>
+      <textarea id="text-input" placeholder="Paste your text here..."></textarea>
+      <p>Words: <span id="word-count">0</span> | Characters: <span id="char-count">0</span></p>
+    </section>
+
+    <section id="countdown" class="tool">
+      <h2>Countdown to Holidays</h2>
+      <label for="holiday-date">Choose your holiday date and time:</label><br />
+      <input type="datetime-local" id="holiday-date" />
+      <p id="countdown-display" style="margin-top:1rem; font-weight: bold;">Pick a date above to see the countdown.</p>
+    </section>
+    </html>
+    <section id="stopwatch" class="tool">
+      <h2>Stopwatch</h2>
+      <p id="stopwatch-display">00:00:00.00</p>
+      <div style="margin-top: 1rem;">
+        <button id="start-stopwatch">Start</button>
+        <button id="pause-stopwatch">Pause</button>
+        <button id="reset-stopwatch">Reset</button>
+        <button id="lap-stopwatch">Lap</button>
+      </div>
+      <ul id="laps-list" style="margin-top: 1rem; padding-left: 1rem;"></ul>
+    </section>
+    <!-- Pomodoro Timer Section -->
+    <section id="pomodoro" class="tool">
+      <h2>Work Timer</h2>
+      <p id="pomodoro-display" style="font-size: 2rem; font-weight: bold;">25:00</p>
+      <p id="pomodoro-status" style="margin-bottom: 1rem;">Work Time</p>
+
+      <div style="margin-bottom: 1rem;">
+        <label>
+          Work duration (minutes): 
+          <input type="number" id="work-duration" value="25" min="1" max="120" style="width: 60px; margin-left: 0.3rem;" />
+        </label>
+        <label style="margin-left: 1rem;">
+          Break duration (minutes): 
+          <input type="number" id="break-duration" value="5" min="1" max="60" style="width: 60px; margin-left: 0.3rem;" />
+        </label>
+      </div>
+
+      <div>
+        <button id="pomodoro-start">Start</button>
+        <button id="pomodoro-pause">Pause</button>
+        <button id="pomodoro-reset">Reset</button>
+      </div>
+    </section>
+
+    <!-- Scientific Calculator Section -->
+    <section id="calculator" class="tool">
+      <h2>Scientific Calculator</h2>
+      <input type="text" id="calc-display" readonly
+        style="width: 100%; font-size: 2rem; padding: 0.75rem 1rem; margin-bottom: 1rem; text-align: right; background: #333; color: #eee; border: none; border-radius: 10px; box-sizing: border-box;" />
+      <div id="calc-buttons" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem;">
+        
+        <button id="calc-clear">AC</button>
+        <button id="random-button">😀</button>
+        <button id="calc-backspace">⌫</button>
+        <button data-value="(">(</button>
+        <button data-value=")">)</button>
+
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button data-value="/" title="Divide">÷</button>
+        <button data-value="^" title="Power">^</button>
+
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button data-value="*" title="Multiply">×</button>
+        <button data-value="sqrt(">√</button>
+
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button data-value="-" title="Subtract">−</button>
+        <button data-value="log(">log</button>
+
+        <button data-value="0">0</button>
+        <button data-value=".">.</button>
+        <button data-value="PI">π</button>
+        <button data-value="+" title="Add">+</button>
+        <button data-value="ln(">ln</button>
+
+        <button data-value="sin(">sin</button>
+        <button data-value="cos(">cos</button>
+        <button data-value="tan(">tan</button>
+        <button data-value="E">e</button>
+        <button id="calc-equals">=</button>
+      </div>
+    </section>
+    <section id="todo" class="tool">
+      <h2>✅ To-Do List</h2>
+      <form id="todo-form" style="margin-bottom: 1rem;">
+        <input type="text" id="todo-input" placeholder="Add a new task..." required style="width: 70%; padding: 0.5rem; font-size: 1rem;" />
+        <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; margin-left: 0.5rem; cursor: pointer;">Add</button>
+      </form>
+      <ul id="todo-list" style="list-style: none; padding-left: 0;"></ul>
+    </section>
+    
+
+    
+    
+    
+    <!-- You can add more tool sections here -->
+  </main>
+
+  <footer>
+    <p>Made with ❤️ by volt</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
